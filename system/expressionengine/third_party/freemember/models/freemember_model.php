@@ -216,7 +216,7 @@ class Freemember_model extends CI_Model
         $update_data = array();
         foreach ($this->member_custom_fields() as $field) {
             if (isset($data[$field->m_field_name])) {
-                $update_data['m_field_id_'.$field->m_field_id] = $data[$field->m_field_name];
+                $update_data['m_field_id_'.$field->m_field_id] = ee()->security->xss_clean($data[$field->m_field_name]);
             }
         }
 
